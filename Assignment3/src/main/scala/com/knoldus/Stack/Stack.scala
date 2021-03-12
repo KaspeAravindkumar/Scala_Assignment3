@@ -1,10 +1,10 @@
 package com.knoldus.Stack
 
 class Stack[A] {
-  var items = List[A]()
+  var items: List[A]= List[A]()
 
   //function to get all values for stack
-  def get: Unit = items.foreach(x => println(x))
+  def get: Unit = items.foreach(x => print(s"$x\n"))
 
   //function to check if stack is empty
   def isEmpty: Boolean = items.isEmpty
@@ -16,8 +16,7 @@ class Stack[A] {
   }
 
   //function to remove top element from stack
-  def pop: Any =
-    items match {
+  def pop: Any = items match {
       case List() => "Stack is empty"
       case head :: rest => items = rest; head
     }

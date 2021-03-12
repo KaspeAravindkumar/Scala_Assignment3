@@ -3,19 +3,14 @@ package com.knoldus.Tables
 import scala.collection.immutable.List
 
 class Tables {
-  //function that writes the table for each element
-  def table(tableNumber: Int, multiplier: Int): Unit = {
-    if (multiplier > 10) {
-      println("**********************")
-      return
+  //function that writes the multiplication table for each element
+  def multiplicationTable(list: List[Int]): List[List[Int]] = {
+    val tables = for (number <- list) yield {
+      val table = for (element <- (1 to 10)) yield {
+        number * element
+      }
+      table.toList
     }
-    println(tableNumber + " * " + multiplier + " = " + tableNumber * multiplier)
-    table(tableNumber, multiplier + 1)
+    tables
   }
-
-  //function to extract each element from the list and write its table
-  def getTable(list: List[Int]): Unit = {
-    list.foreach(number => table(number, 1))
-  }
-
 }

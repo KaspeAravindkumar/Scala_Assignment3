@@ -11,6 +11,12 @@ class LastElement {
   }
 
   //function to get last element of list
-  def getLastElement[A](list: List[A]): Any = list(listLength(list) - 1)
+  def getLastElement[A](list: List[A]): Any = {
+    try {
+      list(listLength(list) - 1)
+    } catch {
+      case i:IndexOutOfBoundsException => i.toString
+    }
+  }
 
 }
